@@ -10,7 +10,7 @@ end
 
 def get_remote(src, dest = nil)
   dest ||= src
-  repo = 'https://raw.github.com/80percent/rails-template/master/files/'
+  repo = 'https://raw.github.com/bingxie/rails-template/master/files/'
   remote_file = repo + src
   remove_file dest
   get(remote_file, dest)
@@ -126,22 +126,40 @@ inject_into_file 'config/application.rb', after: "class Application < Rails::App
 EOF
 end
 
-say 'Applying rspec test framework...'
-gem_group :development do
-  gem 'rails_apps_testing'
-end
-gem_group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-end
-gem_group :test do
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'selenium-webdriver'
-end
-after_bundle do
-  generate 'testing:configure', 'rspec --force'
+if yes?("Do you want to use Rspec instead of Minitest?")
+  say 'Applying rspec test framework...'
+  gem_group :development do
+    gem 'rails_apps_testing'
+  end
+  gem_group :development, :test do
+    gem 'rspec-rails'
+    gem 'factory_girl_rails'
+  end
+  gem_group :test do
+    gem 'capybara'
+    gem 'database_cleaner'
+    gem 'launchy'
+    gem 'selenium-webdriver'
+  end
+  after_bundle do
+    generate 'testing:configure', 'rspec --force'
+  end
+else
+  # Add gems for minitest
+  gem_group :test do
+    gem "minitest-reporters"
+
+    gem 'capybara'
+    gem "connection_pool"
+    gem "launchy"
+    gem "selenium-webdriver"
+
+    gem "mocha"
+    gem "poltergeist"
+    gem 'phantomjs', require: 'phantomjs/poltergeist'
+  end
+
+  get_remote('test_helper.rb', 'test/test_helper.rb')
 end
 
 get_remote 'README.md'
