@@ -47,10 +47,12 @@ remove_file 'app/assets/stylesheets/application.css'
 get_remote('application.scss', 'app/assets/stylesheets/application.scss')
 inject_into_file 'app/assets/javascripts/application.js', after: "//= require jquery\n" do "//= require bootstrap-sprockets\n" end
 
-say 'Applying simple_form...'
-gem 'simple_form'
-after_bundle do
-  generate 'simple_form:install', '--bootstrap'
+if yes?("Do you want to use Simple Form?")
+  say 'Applying simple_form...'
+  gem 'simple_form'
+  after_bundle do
+    generate 'simple_form:install', '--bootstrap'
+  end
 end
 
 say 'Applying font-awesome & slim & high_voltage...'
