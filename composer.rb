@@ -176,8 +176,7 @@ after_bundle do
   git add: '.'
   git commit: '-m "init rails"'
 
-  rails_command 'db:create'
-  rails_command 'db:migrate'
-  rails_command 'test'
+  rake 'db:create'
+
   say 'Build successfully! Use `rails s` to start your rails app...'
 end
