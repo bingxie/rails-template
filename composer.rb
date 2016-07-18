@@ -159,7 +159,8 @@ else
     gem 'phantomjs', require: 'phantomjs/poltergeist'
   end
 
-  get_remote('test_helper.rb', 'test/test_helper.rb')
+  get_remote('test/test_helper.rb', 'test/test_helper.rb')
+  get_remote('test/features/about_page_test.rb', 'test/features/about_page_test.rb')
 end
 
 get_remote 'README.md'
@@ -173,6 +174,8 @@ after_bundle do
   git add: '.'
   git commit: '-m "init rails"'
 
-  rake 'db:create'
+  rails_command 'db:create'
+  rails_command 'db:migrate'
+  rails_command 'test'
   say 'Build successfully! Use `rails s` to start your rails app...'
 end

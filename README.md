@@ -36,7 +36,7 @@ Then,
 
 2. Create your own rails app applying `rails-template`
 
-    `$ rails new myapp -m https://raw.github.com/80percent/rails-template/master/composer.rb`
+    `$ rails new myapp -m https://raw.github.com/bingxie/rails-template/master/composer.rb`
 
 ## What we do
 
