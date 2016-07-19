@@ -128,6 +128,16 @@ inject_into_file 'config/application.rb', after: "class Application < Rails::App
 EOF
 end
 
+gem_group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+end
+
+gem_group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 if yes?("Do you want to use Rspec instead of Minitest?")
   say 'Applying rspec test framework...'
   gem_group :development do
