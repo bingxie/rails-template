@@ -10,7 +10,7 @@ The source code of myapp
 * postgres
 * slim
 * high_voltage
-* carriewave & upyun
+* carriewave & qiniu
 * sidekiq
 * kaminari
 * mina

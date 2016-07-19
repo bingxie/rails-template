@@ -46,7 +46,7 @@ Then,
 
 2. `Bootstrap3` and `font-awesome` are integrated to make your products UI easily, it aslo has some example pages for you to quickly start.
 
-3. `carriewave` and `carriewave-upyun` are integrated.
+3. `carriewave` and `carriewave-qiniu` are integrated.
 
 4. `mina` and its plugins are the best & simplest deployment tools in the world for rails app.
 
@@ -64,7 +64,7 @@ Other gems integrated in rails-template are worth learning seriously.
 * slim
 * simple_form
 * high_voltage
-* carriewave & upyun
+* carriewave & qiniu
 * sidekiq
 * kaminari
 * mina

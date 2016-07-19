@@ -75,9 +75,9 @@ end
 # initialize files
 # uploader directory
 # application.yml
-say 'Applying carrierwave & upyun...'
+say 'Applying carrierwave & qiniu...'
 gem 'carrierwave'
-gem 'carrierwave-upyun'
+gem 'carrierwave-qiniu', '~> 0.2.1'
 get_remote('config/initializers/carrierwave.rb')
 get_remote('image_uploader.rb', 'app/uploaders/image_uploader.rb')
 
