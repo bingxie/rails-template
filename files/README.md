@@ -19,7 +19,7 @@ The source code of myapp
 
 ## Built with
 
-[rails template of 80percent](https://github.com/80percent/rails-template)
+[rails template](https://github.com/bingxie/rails-template)
 
 ## LICENSE
 MIT
