@@ -128,6 +128,8 @@ inject_into_file 'config/application.rb', after: "class Application < Rails::App
 EOF
 end
 
+gem 'rack-mini-profiler'
+
 gem_group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
