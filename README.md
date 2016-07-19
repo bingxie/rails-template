@@ -4,7 +4,7 @@ A best & newest & fastest rails template for chinese senior rails developer.
 
 It's a best start for your new rails project.
 
-An example built with rails-template: https://github.com/80percent/rails-template-example
+An example built with rails-template: https://github.com/bingxie/rails-template-example
 
 ## How to use
 
@@ -50,7 +50,9 @@ Then,
 
 4. `mina` and its plugins are the best & simplest deployment tools in the world for rails app.
 
-5. `slim`, `rspec`, `high_voltage` and so on.
+5. You can chose from `rspec` and `minitest`.
+
+6. `slim`, `simple_form`, `high_voltage` and so on.
 
 Other gems integrated in rails-template are worth learning seriously.
 
@@ -70,20 +72,7 @@ Other gems integrated in rails-template are worth learning seriously.
 * mina
 * puma
 * lograge
-
-## TODO
-
-* wiki for more detail introduce
-* deployment step by step
-
-## Projects that using `rails-template`
-
-Welcome to pull request to update this if you choose `rails-template` for your new rails app.
-
-* [八十二十](https://80post.com)
-* [sunesy 尚艺(开发中)](http://sunesy_develop.80percent.io)
-* [pausee 衣橱(开发中)](http://pausee.80percent.io)
-* Waiting for more examples here...
+* rack-mini-profiler
 
 ## Thanks
 
