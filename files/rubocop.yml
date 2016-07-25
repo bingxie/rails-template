@@ -1,0 +1,34 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - "bin/*"
+    - config/boot.rb
+    - config/environment.rb
+    - config/initializers/version.rb
+    - db/schema.rb
+    - "tmp/**/*"
+    - Gemfile
+    - Rakefile
+
+Style/Documentation:
+  Exclude:
+    - "app/controllers/*_controller.rb"
+    - "app/helpers/**/*_helper.rb"
+    - "app/mailers/**/*_mailer.rb"
+    - "app/models/**/*"
+    - "app/uploaders/**/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "test/**/*"
+
+LineLength:
+  Max: 120
+
+Style/RedundantSelf:
+  Exclude:
+    - config/initializers/status_page.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - "app/controllers/**/*"

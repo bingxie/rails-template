@@ -73,6 +73,7 @@ Other gems integrated in rails-template are worth learning seriously.
 * puma
 * lograge
 * rack-mini-profiler
+* rubocop
 
 ## Thanks
 

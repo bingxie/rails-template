@@ -138,7 +138,9 @@ end
 gem_group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'rubocop', require: false
 end
+get_remote('rubocop.yml', '.rubocop.yml')
 
 if yes?("Do you want to use Rspec instead of Minitest?")
   say 'Applying rspec test framework...'
