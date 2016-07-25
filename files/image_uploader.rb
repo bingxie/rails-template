@@ -6,13 +6,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
-  end
-
-  protected
-
-  def secure_token
-    variable = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(variable) or model.instance_variable_set(variable, SecureRandom.uuid)
+    if super.present?
+      @prefix ||= SecureRandom.uuid.gsub('-', "")
+      "#{@prefix}.#{file.extension.downcase}"
+    end
   end
 end
