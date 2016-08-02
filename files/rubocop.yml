@@ -11,6 +11,9 @@ AllCops:
     - Gemfile
     - Rakefile
 
+Rails:
+  Enabled: true
+
 Style/Documentation:
   Exclude:
     - "app/controllers/*_controller.rb"
@@ -31,4 +34,16 @@ Style/RedundantSelf:
 
 Metrics/AbcSize:
   Exclude:
+    - "config/initializers/*"
     - "app/controllers/**/*"
+    - "app/uploaders/*"
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 12
+  Exclude:
+    - "config/initializers/*"
+    - "db/migrate/*"
+    - "test/**/*"
