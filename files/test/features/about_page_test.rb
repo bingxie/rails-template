@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AboutPageTest < ActionDispatch::IntegrationTest
+class AboutPageTest < FeatureTest
   test 'user can see About Page on about page' do
     visit root_path
 

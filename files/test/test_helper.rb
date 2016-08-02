@@ -27,35 +27,33 @@ require 'capybara/poltergeist'
 
 Capybara.javascript_driver = :poltergeist
 
-module ActionDispatch
-  class IntegrationTest
-    include Capybara::DSL
+class FeatureTest < ActionDispatch::IntegrationTest
+  include Capybara::DSL
 
-    Capybara.server_port = 3001
-    Capybara.app_host = 'http://127.0.0.1:3001'
+  Capybara.server_port = 3001
+  Capybara.app_host = 'http://127.0.0.1:3001'
 
-    def assert_content(content)
-      assert page.has_content?(content), %q(Expected to found "#{content}" in: "#{page.text}")
+  def assert_content(content)
+    assert page.has_content?(content), %q(Expected to found "#{content}" in: "#{page.text}")
+  end
+
+  def refute_content(content)
+    refute page.has_content?(content), %q(Expected not to found "#{content}" in: "#{page.text}")
+  end
+
+  # See: https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara
+  def wait_for_ajax
+    Timeout.timeout(Capybara.default_max_wait_time) do
+      loop until finished_all_ajax_requests?
     end
+  end
 
-    def refute_content(content)
-      refute page.has_content?(content), %q(Expected not to found "#{content}" in: "#{page.text}")
-    end
+  def finished_all_ajax_requests?
+    page.evaluate_script('jQuery.active').zero?
+  end
 
-    # See: https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara
-    def wait_for_ajax
-      Timeout.timeout(Capybara.default_max_wait_time) do
-        loop until finished_all_ajax_requests?
-      end
-    end
-
-    def finished_all_ajax_requests?
-      page.evaluate_script('jQuery.active').zero?
-    end
-
-    def teardown
-      Capybara.use_default_driver
-    end
+  def teardown
+    Capybara.use_default_driver
   end
 end
 
