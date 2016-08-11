@@ -1,9 +1,12 @@
 if ENV['RAILS_ENV'] == 'production'
-  app_root = '/data/www/myapp/shared'
-  pidfile "#{app_root}/tmp/pids/puma.pid"
-  state_path "#{app_root}/tmp/pids/puma.state"
-  bind "unix://#{app_root}/tmp/sockets/puma.sock"
-  activate_control_app "unix://#{app_root}/tmp/sockets/pumactl.sock"
+  shared_dir = '/data/www/myapp/shared'
+  pidfile "#{shared_dir}/tmp/pids/puma.pid"
+  state_path "#{shared_dir}/tmp/pids/puma.state"
+  bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
+  activate_control_app "unix://#{shared_dir}/tmp/sockets/pumactl.sock"
+
+  stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
+
   daemonize true
   workers 2
   threads 8, 16
