@@ -181,6 +181,8 @@ else
   get_remote('test/features/about_page_test.rb', 'test/features/about_page_test.rb')
 end
 
+get_remote 'Procfile'
+
 get_remote 'README.md'
 gsub_file 'README.md', /myapp/, "#{app_name}"
 # `ack` is a really quick tool for searching code
