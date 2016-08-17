@@ -38,6 +38,11 @@ Then,
 
     `$ rails new myapp -m https://raw.github.com/bingxie/rails-template/master/composer.rb`
 
+3. Start your application
+
+    `$ gem install foreman`
+    `$ foreman start`
+
 ## What we do
 
 `rails-template` apply lots of good components for you to make development damn quick.
@@ -50,7 +55,7 @@ Then,
 
 4. `mina` and its plugins are the best & simplest deployment tools in the world for rails app.
 
-5. You can chose from `rspec` and `minitest`.
+5. You can chose from `rspec` or `minitest`.
 
 6. `slim`, `simple_form`, `high_voltage` and so on.
 
@@ -74,6 +79,7 @@ Other gems integrated in rails-template are worth learning seriously.
 * lograge
 * rack-mini-profiler
 * rubocop
+* foreman
 
 ## Thanks
 
